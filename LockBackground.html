@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Epic</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="weatherDiv">Weather</div>
+    </div>
+    <script>
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+      var doc = document,
+          weatherDiv = doc.getElementById('weatherDiv');
+
+      function mainUpdate(type){
+
+        if (type == "weather"){ //weather info
+          weatherDiv.innerHTML = weather.temperature + weather.city;}
+      }
+      if (dd < 10)
+      {
+        dd = '0' + dd; //Remove the 0 between '' to change formatting!
+      }
+
+      if (mm < 10)
+      {
+        mm = '0' + mm; //Remove the 0 between '' to change formatting!
+      }
+      today = mm + '/' + dd + '/' + yyyy;
+      document.write(today);  
+    </script>
+    <div id="tes">
+      <script>
+        (function () {
+          function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+          }
+
+          function startTime() {
+            var today = new Date(),
+                h = checkTime(today.getHours()),
+                m = checkTime(today.getMinutes());
+            if (h > 12)
+            {
+              document.getElementById('tes').innerHTML = h - 12 + ":" + m; //Change h - 12 to h for 24hr time
+              t = setTimeout(function () {
+                startTime()
+              }, 500);
+            }
+            else if (h <= 12)
+            {
+              document.getElementById('tes').innerHTML = h + ":" + m;
+              t = setTimeout(function () {
+                startTime()
+              }, 500);
+            }
+          }
+          startTime();
+        })();
+      </script>
+    </div>
+  </body>
+</html>
